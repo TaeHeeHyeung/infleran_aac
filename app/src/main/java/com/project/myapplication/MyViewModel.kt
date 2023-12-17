@@ -8,10 +8,9 @@ class MyViewModel(
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-
     var counter: Int = savedStateHandle.get<Int>(SAVE_STATE_KEY) ?: counter_
 
-    fun saveState(){
+    fun saveState() {
         savedStateHandle[SAVE_STATE_KEY] = counter
     }
 
