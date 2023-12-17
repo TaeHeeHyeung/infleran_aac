@@ -20,11 +20,13 @@ class MainActivity : AppCompatActivity() {
         binding.tvCount.text = myViewModel.counter.toString()
 
         binding.btnPlus.setOnClickListener {
-            myViewModel.counter += 1
+            myViewModel.liveCounter.value = myViewModel.liveCounter.value?.plus(1)
             myViewModel.saveState()
-            binding.tvCount.text = myViewModel.counter.toString()
         }
 
-//        MyViewModelFactory
+        myViewModel.modifiedCounter.observe(this) { counter ->
+            binding.tvCount.text = counter.toString()
+        }
+
     }
 }

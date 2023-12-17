@@ -46,6 +46,9 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.8.2")
     implementation("androidx.fragment:fragment-ktx:1.6.2")
 
+    // Transformations.map 사용
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
+
     testImplementation("junit:junit:4.13.2")
 
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
