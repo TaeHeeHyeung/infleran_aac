@@ -10,3 +10,7 @@ observable:
 lifeData:
 switchMap: 
 map: 
+
+3. DataBinding
+
+4. Repository Pattern 
