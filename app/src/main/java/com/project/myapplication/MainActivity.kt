@@ -17,18 +17,19 @@ class MainActivity : AppCompatActivity() {
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         setContentView(binding.root)
 
-        val factory = MyViewModelFactory(0, this)
+        val factory = MyViewModelFactory(RepositoryImpl(0), this)
         val myViewModel: MyViewModel by viewModels<MyViewModel> { factory }
         binding.viewmodel = myViewModel;
         binding.lifecycleOwner = this;
 
         binding.btnPlus.setOnClickListener {
-            myViewModel.liveCounter.value = myViewModel.liveCounter.value?.plus(1)
+//            myViewModel.liveCounter.value = myViewModel.liveCounter.value?.plus(1)
+            myViewModel.increase()
         }
 
-        myViewModel.modifiedCounter.observe(this) { counter ->
-            binding.tvCount.text = counter.toString()
-        }
+//        myViewModel.modifiedCounter.observe(this) { counter ->
+//            binding.tvCount.text = counter.toString()
+//        }
 
     }//end onCreate
 }

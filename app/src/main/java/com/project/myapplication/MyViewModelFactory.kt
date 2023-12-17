@@ -20,7 +20,7 @@ import java.lang.Exception
 //}
 
 class MyViewModelFactory(
-    private val counter: Int,
+    private val repository: RepositoryImpl,
     owner: SavedStateRegistryOwner,
     defaultArgs: Bundle? = null
 ) : AbstractSavedStateViewModelFactory(owner, defaultArgs) {
@@ -32,7 +32,7 @@ class MyViewModelFactory(
         handle: SavedStateHandle
     ): T {
         if (modelClass.isAssignableFrom(MyViewModel::class.java)) {
-            val myViewModel = MyViewModel(counter, handle)
+            val myViewModel = MyViewModel(repository, handle)
             return myViewModel as T;
         }
         throw Exception("viewModel class not found")
